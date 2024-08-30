@@ -18,7 +18,7 @@ jobs:
       with:
         nix_path: nixpkgs=channel:nixos-24.05
         extra_nix_config: |
-          system-features = aarch64-linux arm-linux
+          system-features = aarch64-linux arm-linux kvm
     - run: |
          DEBIAN_FRONTEND=noninteractive
          sudo apt-get update -q -y && sudo apt-get install -q -y tree qemu-system-aarch64 qemu-efi binfmt-support qemu-user-static
