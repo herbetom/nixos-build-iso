@@ -1,7 +1,20 @@
 #!/usr/bin/env nix-shell
 #! nix-shell -p nixos-generators -i bash
 
-export NIX_PATH=nixpkgs=channel:nixos-24.05
-#nixos-generate -f install-iso -c ./config --show-trace --system aarch64-linux
+set -x
 
-nixos-generate -f install-iso -c ./config --show-trace --system x86_64-linux -o result
+export NIX_PATH=nixpkgs=channel:nixos-24.05
+
+if [ -z "$1" ]; then
+	format="install-iso"
+else
+	format=$1
+fi
+
+if [ -z "$2" ]; then
+	system=""
+else
+	system="--system ${2}"
+fi
+
+nixos-generate -f "${format}" -c ./config --show-trace ${system} -o result
