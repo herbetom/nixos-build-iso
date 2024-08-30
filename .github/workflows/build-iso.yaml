@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         format: [install-iso, qcow]
-        plattform: [x86_64-linux, aarch64-linux]
+        plattform: [x86_64-linux]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
