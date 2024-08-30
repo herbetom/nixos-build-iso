@@ -25,7 +25,8 @@ jobs:
     - run: |
          DEBIAN_FRONTEND=noninteractive
          sudo apt-get update -q -y && sudo apt-get install -q -y tree qemu-system-aarch64 qemu-efi binfmt-support qemu-user-static
-    - run: nix-build '<nixpkgs/nixos>' -A ${{ matrix.attrPath }} -I nixos-config=${{ matrix.type }}.nix --argstr system ${{ matrix.plattform }}
+    - run: ./build
+#    - run: nix-build '<nixpkgs/nixos>' -A ${{ matrix.attrPath }} -I nixos-config=${{ matrix.type }}.nix --argstr system ${{ matrix.plattform }}
     - run: tree result
     - uses: actions/upload-artifact@v3
       with:
