@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         plattform: [x86_64-linux, aarch64-linux]
-	type: [install-iso, qcow]
+	format: [install-iso, qcow]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
     - run: |
          DEBIAN_FRONTEND=noninteractive
          sudo apt-get update -q -y && sudo apt-get install -q -y tree qemu-system-aarch64 qemu-efi binfmt-support qemu-user-static
-    - run: ./build ${{ matrix.type }} ${{ matrix.plattform }}
+    - run: ./build ${{ matrix.format }} ${{ matrix.plattform }}
     - run: tree result
     - uses: actions/upload-artifact@v4
       with:
