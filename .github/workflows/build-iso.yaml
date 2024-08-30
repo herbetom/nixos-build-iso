@@ -28,7 +28,7 @@ jobs:
     - run: ./build
 #    - run: nix-build '<nixpkgs/nixos>' -A ${{ matrix.attrPath }} -I nixos-config=${{ matrix.type }}.nix --argstr system ${{ matrix.plattform }}
     - run: tree result
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.plattform }}-${{ matrix.type }}
         path: result/${{ matrix.type }}/
@@ -45,11 +45,11 @@ jobs:
       contents: write
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v3
-      - name: Display structure of artifacts
+        uses: actions/download-artifact@v4
+      - name: Display structure of artifact
         run: ls -R
       - name: Create Release & Upload Release Assets
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           # Note: If there is no release name specified, releases created in
           # the GitHub UI do not trigger a failure and are modified instead.
@@ -58,5 +58,8 @@ jobs:
           # Note: Release notes are only auto-generated if the release was
           # created by the Github Action and was not created in the Github UI.
           generate_release_notes: true
+          fail_on_unmatched_files: false
           files: |
             ./*/*.iso
+            ./*/*.raw
+            ./*/*.qcow2
