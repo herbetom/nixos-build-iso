@@ -47,8 +47,6 @@ jobs:
       - name: Create Release & Upload Release Assets
         uses: softprops/action-gh-release@v2
         with:
-          # Note: If there is no release name specified, releases created in
-          # the GitHub UI do not trigger a failure and are modified instead.
           draft: false
           prerelease: false
           # Note: Release notes are only auto-generated if the release was
@@ -56,5 +54,13 @@ jobs:
           generate_release_notes: true
           fail_on_unmatched_files: false
           files: |
-            ./*/*/*.iso
             ./*/*.qcow2
+      - name: Create Release & Upload Release Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          fail_on_unmatched_files: false
+          files: |
+            ./*/*/*.iso
