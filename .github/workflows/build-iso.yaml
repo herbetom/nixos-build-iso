@@ -56,6 +56,5 @@ jobs:
           generate_release_notes: true
           fail_on_unmatched_files: false
           files: |
-            ./*/*.iso
-            ./*/*.raw
-            ./*.qcow2
+            ./*/*/*.iso
+            ./*/*.qcow2
