@@ -39,6 +39,7 @@
     whois
     netcat
     jq
+    tree
 
     dig
     inetutils
