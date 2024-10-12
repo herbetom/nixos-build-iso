@@ -16,5 +16,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_10;
   boot.supportedFilesystems = [ "bcachefs" ];
+  environment.systemPackages = with pkgs; [ bcachefs-tools ];
 
 }
