@@ -14,8 +14,4 @@
 
   isoImage.isoName = lib.mkForce "${config.isoImage.isoBaseName}-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}-${config.networking.hostName}.iso";
 
-  boot.kernelPackages = pkgs.linuxPackages_6_10;
-  boot.supportedFilesystems = [ "bcachefs" ];
-  environment.systemPackages = with pkgs; [ bcachefs-tools ];
-
 }
