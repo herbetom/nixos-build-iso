@@ -71,6 +71,8 @@
     ethtool
     conntrack-tools
 
+    btop
+
     iw
 
     unzip
