@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        format: [install-iso]
+        format: [install-iso, install-iso-cloud]
         plattform:
           - name: x86_64-linux
             runs-on: ubuntu-24.04

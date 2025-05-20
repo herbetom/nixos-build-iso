@@ -17,4 +17,13 @@ else
 	system="--system ${2}"
 fi
 
-nixos-generate -f "${format}" -c ./config --show-trace ${system} -o result
+if [[ $format == *-cloud ]]; then
+	format=${format%-cloud}
+	config="./config/cloud.nix"
+	echo $format
+else
+	config="./config"
+fi
+
+
+nixos-generate -f "${format}" -c "${config}" --show-trace ${system} -o result
