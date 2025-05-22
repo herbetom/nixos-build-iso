@@ -57,6 +57,8 @@
 
     unzip
     zip
+
+    nfs-utils
   ];
 
   # Select internationalisation properties.
@@ -78,5 +80,7 @@
     keyMap = "de";
   #   useXkbConfig = true; # use xkb.options in tty.
   };
+
+  boot.supportedFilesystems = [ "nfs" ];
 
 }
