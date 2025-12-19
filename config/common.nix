@@ -43,7 +43,7 @@
     netcat
     jq
     tree
-    tmate
+    upterm
 
     dig
     inetutils
