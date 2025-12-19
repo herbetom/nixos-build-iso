@@ -12,6 +12,6 @@
     ./common.nix
   ];
 
-  isoImage.isoName = lib.mkForce "${config.isoImage.isoBaseName}-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}-${config.networking.hostName}.iso";
+  image.fileName = lib.mkForce "${config.image.baseName}-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}-${config.networking.hostName}.iso";
 
 }
