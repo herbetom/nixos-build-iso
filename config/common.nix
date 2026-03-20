@@ -30,6 +30,7 @@
     tmux
     picocom
     mtr
+    ttl
     parted
     dmidecode
     flashrom
